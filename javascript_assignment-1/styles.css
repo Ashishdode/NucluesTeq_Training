@@ -101,7 +101,6 @@ button:hover {
     background-color: #cc3700;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .game-container {
         width: 90%;
