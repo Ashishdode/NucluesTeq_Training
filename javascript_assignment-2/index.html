@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- start screen division -->
+    <div id="start-screen">
+        <h1 id="quiz">🔍 Quiz Game⁉️</h1>
+        <label for="category">Choose Category:</label>
+        <select id="category">
+            <option value="9">📖 General Knowledge</option>
+            <option value="18">💻 Science: Computers</option>
+            <option value="23">🧭 History</option>
+        </select>
+
+        <label for="difficulty">Choose Difficulty:</label>
+        <select id="difficulty">
+            <option value="easy">😀 Easy</option>
+            <option value="medium">🙂 Medium</option>
+            <option value="hard">😐 Hard</option>
+        </select>
+
+        <button id="start-btn">Start Quiz</button>
+    </div>
+<!-- second screen division -->
+    <div id="quiz-container" class="hidden">
+        <div id="question-banner">QUESTION</div>
+        <h2 id="question"></h2>
+        <div id="options"></div>
+        <p>⌛ Time left: <span id="timer">15</span> seconds</p>
+        <p> Score: <span id="score">0</span></p>
+        <p id="feedback"></p>
+    </div>
+    
+
+    <div id="end-screen" class="hidden">
+        <h2>Game Over!</h2>
+        <p>Your final score: <span id="final-score"></span></p>
+        <button id="restart-btn">Play Again</button>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
