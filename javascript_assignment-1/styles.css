@@ -101,6 +101,10 @@ button:hover {
     background-color: #cc3700;
 }
 
+<<<<<<< Updated upstream
+=======
+/* Responsive Design */
+>>>>>>> Stashed changes
 @media (max-width: 768px) {
     .game-container {
         width: 90%;
