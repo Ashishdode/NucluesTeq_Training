@@ -11,9 +11,21 @@ const currentTurnEl = document.getElementById("current-turn");
 const currentScoreEl = document.getElementById("current-score");
 const playerScores = [document.getElementById("player1-score"), document.getElementById("player2-score")];
 const winnerEl = document.getElementById("winner");
+const playerNameInputs = [document.getElementById("player1-name"), document.getElementById("player2-name")];
+
+// Disable name inputs when game starts
+function disableNameInputs() {
+    playerNameInputs.forEach(input => input.setAttribute("disabled", true));
+}
+
+// Enable name inputs when game resets
+function enableNameInputs() {
+    playerNameInputs.forEach(input => input.removeAttribute("disabled"));
+}
 
 rollBtn.addEventListener("click", function() {
     if (playing) {
+        disableNameInputs(); // Lock names after first roll
         const dice = Math.floor(Math.random() * 6) + 1;
         diceEl.src = `assets/dice-${dice}.png`;
         if (dice === 1) {
@@ -33,7 +45,7 @@ saveBtn.addEventListener("click", function() {
         currentScore = 0;
         if (scores[activePlayer] >= 100) {
             playing = false;
-            winnerEl.textContent = `${document.getElementById(`player${activePlayer + 1}-name`).value} Wins!`;
+            winnerEl.textContent = `${playerNameInputs[activePlayer].value} Wins!`;
         } else {
             switchTurn();
         }
@@ -51,6 +63,7 @@ resetBtn.addEventListener("click", function() {
     currentScoreEl.textContent = "0";
     winnerEl.textContent = "";
     currentTurnEl.textContent = "Player 1's turn";
+    enableNameInputs(); // Unlock names after reset
 });
 
 function switchTurn() {
