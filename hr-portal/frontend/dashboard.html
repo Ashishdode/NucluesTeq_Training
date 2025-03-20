@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        if (!localStorage.getItem("username")) {
+            window.location.href = "index.html";
+        }
+
+       
+    </script>
+
+</head>
+<body>
+
+    <nav>HR Portal</nav>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <div class="dashboard-container">
+        <h1>Employee List 📃</h1>
+
+        <button class="add-employee-btn" onclick="window.location.href='add_employee.html'">Add Employee</button>
+
+        <div id="editEmployeeForm" class="form-container" style="display: none;">
+            <h3>Edit Employee ✏️</h3>
+            <input type="hidden" id="editEmployeeId">
+            <input type="text" id="editFirstName" placeholder="First Name" required>
+            <input type="text" id="editLastName" placeholder="Last Name" required>
+            <input type="email" id="editEmail" placeholder="Email" required>
+            <input type="text" id="editDepartment" placeholder="Department" required>
+            
+            <div class="button-group">
+                <button class="submit-btn" onclick="updateEmployee()">Save ✅</button>
+                <button class="cancel-btn" onclick="hideEditForm()">Cancel ❌</button>
+            </div>
+        </div>
+        
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
